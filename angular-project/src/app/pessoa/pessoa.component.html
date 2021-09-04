@@ -1,0 +1,29 @@
+<div class="container main-container">
+    <h4>Cadastro de Pessoa</h4>
+    <hr/>
+
+    <form (ngSubmit)="submitPessoa()" [formGroup]="formGroup">
+        <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="label-control" for="nome">Nome</label>
+                    <input type="text" class="form-control" formControlName="nome" id="nome" />
+                    <span class="text-danger">Obrigatório!</span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="label-control" for="altura">Altura</label>
+                    <input type="number" class="form-control" formControlName="altura" id="altura" />
+                    <span class="text-danger">Obrigatório!</span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="label-control" for="dataNascimento">Data Nascimento</label>
+                    <input type="date" class="form-control" formControlName="dataNascimento" id="dataNascimento" />
+                    <span class="text-danger">Obrigatório!</span>
+                </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <button type="submit" class="btn  btn-success">Salvar</button>
+            </div>
+        </div>
+    </form>
+</div>
