@@ -4,25 +4,35 @@
 
     <form (ngSubmit)="submitPessoa()" [formGroup]="formGroup">
         <div class="row">
-                <div class="form-group col-md-4">
-                    <label class="label-control" for="nome">Nome</label>
-                    <input type="text" class="form-control" formControlName="nome" id="nome" />
-                    <span class="text-danger">Obrigatório!</span>
-                </div>
-                <div class="form-group col-md-4">
-                    <label class="label-control" for="altura">Altura</label>
-                    <input type="number" class="form-control" formControlName="altura" id="altura" />
-                    <span class="text-danger">Obrigatório!</span>
-                </div>
-                <div class="form-group col-md-4">
-                    <label class="label-control" for="dataNascimento">Data Nascimento</label>
-                    <input type="date" class="form-control" formControlName="dataNascimento" id="dataNascimento" />
-                    <span class="text-danger">Obrigatório!</span>
-                </div>
+            <div class="form-group col-md-4">
+                <label class="label-control" for="nome">Nome</label>
+                <input type="text" class="form-control" formControlName="nome" id="nome" [ngClass]="{'is-invalid': formGroup.get('nome')?.errors?.required && (formGroup.get('nome')?.dirty || formGroup.get('nome')?.touched)}"/>
+                <span class="text-danger" *ngIf="formGroup.get('nome')?.errors?.required && (formGroup.get('nome')?.dirty || formGroup.get('nome')?.touched)">Obrigatório!</span>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="label-control" for="altura">Altura</label>
+                <input type="number" class="form-control" formControlName="altura" id="altura" />
+                <!-- <span class="text-danger" *ngIf="formGroup.get('altura')?.errors?.required && (formGroup.get('altura')?.dirty || formGroup.get('altura')?.touched)">Obrigatório!</span> -->
+            </div>
+            <div class="form-group col-md-4">
+                <label class="label-control" for="dataNascimento">Data Nascimento</label>
+                <input type="date" class="form-control" formControlName="dataNascimento" id="dataNascimento" [ngClass]="{'is-invalid': formGroup.get('dataNascimento')?.errors?.required && (formGroup.get('dataNascimento')?.dirty || formGroup.get('dataNascimento')?.touched)}"/>
+                <span class="text-danger" *ngIf="formGroup.get('dataNascimento')?.errors?.required && (formGroup.get('dataNascimento')?.dirty || formGroup.get('dataNascimento')?.touched)">Obrigatório!</span>
+            </div>
         </div>
         <div class="row">
             <div class="form-group col-md-4">
-                <button type="submit" class="btn  btn-success">Salvar</button>
+                <label class="label-control" for="email">Email</label>
+                <input type="email" class="form-control" formControlName="email" id="email"
+                [ngClass]="{'is-invalid': (formGroup.get('email')?.errors?.required && (formGroup.get('email')?.dirty || formGroup.get('email')?.touched)) || 
+                                          (formGroup.get('email')?.errors?.email && (formGroup.get('email')?.dirty || formGroup.get('email')?.touched))} "/>
+                <span class="text-danger" *ngIf="formGroup.get('email')?.errors?.required && (formGroup.get('email')?.dirty || formGroup.get('email')?.touched)">Obrigatório!</span>
+                <span class="text-danger" *ngIf="formGroup.get('email')?.errors?.email && (formGroup.get('email')?.dirty || formGroup.get('email')?.touched)">Inválido!</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <button type="submit" class="btn btn-success" id="submit" [disabled]="!formGroup.valid">Salvar</button>
             </div>
         </div>
     </form>

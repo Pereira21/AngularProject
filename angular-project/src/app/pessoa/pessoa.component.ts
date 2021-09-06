@@ -15,11 +15,14 @@ export class PessoaComponent {
     this.formGroup = formBuilder.group({
       nome: ['', Validators.required],
       altura: [''],
-      dataNascimento: ['']
+      dataNascimento: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]]
     })
   }
 
   submitPessoa(){
-    this.pessoa = Object.assign({}, this.pessoa, this.formGroup.value);
+    if(this.formGroup.valid){
+      this.pessoa = Object.assign({}, this.pessoa, this.formGroup.value);
+    }
   }
 }
