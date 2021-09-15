@@ -1,12 +1,16 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
-import { PessoaComponent } from "./pessoa.component";
+import { CadPessoaComponent } from "./cadastro/cad.pessoa.component";
+import { ListPessoaComponent } from "./listagem/components/pessoa.component";
+import { PessoaComponent } from "./listagem/pessoas.component";
 import { PessoaRoutingModule } from "./pessoa.routing";
 
 @NgModule({
     declarations: [
-        PessoaComponent
+        CadPessoaComponent,
+        PessoaComponent,
+        ListPessoaComponent
     ],
     imports: [
         CommonModule,

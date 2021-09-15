@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Pessoa } from './model/pessoa';
+import { Pessoa } from '../model/pessoa';
 
 @Component({
-  selector: 'app-pessoa',
-  templateUrl: './pessoa.component.html'
+  selector: 'app-cad-pessoa',
+  templateUrl: './cad.pessoa.component.html'
 })
-export class PessoaComponent {
+export class CadPessoaComponent {
 
   formGroup: FormGroup;
   pessoa?: Pessoa;
@@ -16,7 +16,9 @@ export class PessoaComponent {
       nome: ['', Validators.required],
       altura: [''],
       dataNascimento: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]],
+      cpf: [''],
+      rg: ['']
     })
   }
 

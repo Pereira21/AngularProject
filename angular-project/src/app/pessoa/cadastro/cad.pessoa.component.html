@@ -12,7 +12,6 @@
             <div class="form-group col-md-4">
                 <label class="label-control" for="altura">Altura</label>
                 <input type="number" class="form-control" formControlName="altura" id="altura" />
-                <!-- <span class="text-danger" *ngIf="formGroup.get('altura')?.errors?.required && (formGroup.get('altura')?.dirty || formGroup.get('altura')?.touched)">Obrigatório!</span> -->
             </div>
             <div class="form-group col-md-4">
                 <label class="label-control" for="dataNascimento">Data Nascimento</label>
@@ -30,6 +29,7 @@
                 <span class="text-danger" *ngIf="formGroup.get('email')?.errors?.email && (formGroup.get('email')?.dirty || formGroup.get('email')?.touched)">Inválido!</span>
             </div>
         </div>
+
         <div class="row">
             <div class="form-group col-md-4">
                 <button type="submit" class="btn btn-success" id="submit" [disabled]="!formGroup.valid">Salvar</button>
