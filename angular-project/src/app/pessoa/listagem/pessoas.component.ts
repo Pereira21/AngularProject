@@ -29,4 +29,8 @@ export class PessoaComponent implements OnInit{
         }
     ]
     }
+
+    excluirPessoa(id: number){
+        console.log(id);
+    }
 }

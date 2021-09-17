@@ -12,5 +12,6 @@ export class ListPessoaComponent{
 
     constructor() { 
         console.log(this.pessoa);
+        console.log("this.pessoa");
     }
 }

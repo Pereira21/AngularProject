@@ -24,7 +24,7 @@
             <td>{{ pessoa.cpf }}</td>
             <td>
                 <button type="button" class="btn btn-sm btn-warning" disabled>Editar</button>
-                <button type="button" class="btn btn-sm btn-danger" style="margin-left:10px;" disabled>Excluir</button>
+                <button type="button" class="btn btn-sm btn-danger" style="margin-left:10px;" (click)="excluirPessoa(pessoa.id)">Excluir</button>
             </td>
         </tr>
         </tbody>
