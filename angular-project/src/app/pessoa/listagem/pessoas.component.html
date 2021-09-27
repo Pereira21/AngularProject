@@ -1,4 +1,4 @@
-<div class="container main-container">
+<!-- <div class="container main-container">
     <h4>Pessoas Cadastradas</h4>
     <hr/>
     <div class="float-end">
@@ -10,17 +10,14 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nome</th>
-            <!-- <th scope="col">Data Nascimento</th> -->
             <th scope="col">Email</th>
             <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
-          <!-- <app-pessoa *ngFor="let pessoa of pessoas" [pessoa]="pessoa"></app-pessoa> -->
           <tr *ngFor="let pessoa of pessoas">
             <th scope="row">{{ pessoa.id }}</th>
             <td>{{ pessoa.nome }}</td>
-            <!-- <td>{{ pessoa?.dataNascimento }}</td> -->
             <td>{{ pessoa.cpf }}</td>
             <td>
                 <button type="button" class="btn btn-sm btn-warning" disabled>Editar</button>
@@ -29,4 +26,16 @@
         </tr>
         </tbody>
       </table>
+</div> -->
+
+<div class="container main-container">
+  <h4>Pessoas Cadastradas</h4>
+  <hr/>
+  <div class="row text-center">
+    
+    <div *ngFor="let pessoa of pessoas;" class="col-md-4" style="padding-bottom: 30px;">
+      <app-pessoa-card-detalhe [pessoa]="pessoa"></app-pessoa-card-detalhe>
+    </div>
+
+  </div>
 </div>
