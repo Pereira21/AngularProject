@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Pessoa } from "../../model/pessoa";
 
 @Component({
@@ -10,12 +10,14 @@ export class PessoaCardDetalheComponent{
     @Input()
     pessoa: Pessoa = new Pessoa();
 
+    @Output()
+    id: EventEmitter<number> = new EventEmitter();
+
     constructor() { 
-        console.log(this.pessoa);
-        console.log("this.pessoa");
+        
     }
 
     excluirPessoa(id: number){
-        console.log(id);
+        this.id.emit(id);
     }
 }

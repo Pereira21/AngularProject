@@ -30,7 +30,7 @@ export class PessoaComponent implements OnInit{
     ]
     }
 
-    // excluirPessoa(id: number){
-    //     console.log(id);
-    // }
+    excluirPessoa(id: number){
+        console.log("O id é " + id);
+    }
 }
