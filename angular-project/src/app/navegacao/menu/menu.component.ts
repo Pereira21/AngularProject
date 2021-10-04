@@ -2,14 +2,27 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  templateUrl: './menu.component.html'
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
 
-  constructor() { }
+  nav: Nav[] = [
+    {
+      path: '/home',
+      name: 'Home',
+      exact: true
+    },
+    {
+      path: '/pessoa',
+      name: 'Pessoa',
+      exact: true
+    }
+  ]
 
-  ngOnInit(): void {
-  }
+}
 
+interface Nav{
+  path: string;
+  name: string;
+  exact: boolean;
 }
