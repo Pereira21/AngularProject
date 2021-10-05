@@ -4,7 +4,7 @@ import { Pessoa } from '../model/pessoa';
 
 @Component({
   selector: 'app-cad-pessoa',
-  templateUrl: './cad.pessoa.component.html'
+  templateUrl: './cad-pessoa.component.html'
 })
 export class CadPessoaComponent {
 

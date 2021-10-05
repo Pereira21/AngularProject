@@ -1,10 +1,18 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { CadPessoaComponent } from "./cadastro/cad-pessoa.component";
+import { EditPessoaComponent } from "./edicao/edit-pessoa/edit-pessoa.component";
 import { PessoaComponent } from "./listagem/pessoas.component";
+import { PessoaAppComponent } from "./pessoa.app.component";
 
 const pessoaRoutes: Routes = [
-  { path: '', component: PessoaComponent }
-    // { path: '', component: CadPessoaComponent }
+  { path: '', component: PessoaAppComponent, 
+    children: [
+      { path: '', component: PessoaComponent },
+      { path: 'cadastrar', component: CadPessoaComponent },
+      { path: 'editar/:id', component: EditPessoaComponent }
+    ] 
+  },
   ];
 
 @NgModule({
