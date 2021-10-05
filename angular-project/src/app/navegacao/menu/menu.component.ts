@@ -15,7 +15,7 @@ export class MenuComponent {
     {
       path: '/pessoa',
       name: 'Pessoa',
-      exact: true
+      exact: false
     }
   ]
 

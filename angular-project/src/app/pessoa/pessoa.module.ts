@@ -7,6 +7,7 @@ import { PessoaCardDetalheComponent } from "./listagem/components/pessoa-card-de
 import { PessoaComponent } from "./listagem/pessoas.component";
 import { PessoaAppComponent } from "./pessoa.app.component";
 import { PessoaRoutingModule } from "./pessoa.routing";
+import { PessoaService } from "./services/pessoa-service.component";
 
 @NgModule({
     declarations: [
@@ -20,6 +21,9 @@ import { PessoaRoutingModule } from "./pessoa.routing";
         CommonModule,
         PessoaRoutingModule,
         ReactiveFormsModule
+    ],
+    providers:[
+        PessoaService
     ],
     exports:[
 
