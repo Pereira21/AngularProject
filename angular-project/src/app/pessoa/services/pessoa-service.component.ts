@@ -26,7 +26,11 @@ export class PessoaService{
         ]
     }
 
-    obterTodos(){
+    obterTodos(estado: string){
+        if(estado === 'homens'){
+            return this.pessoas.filter(pessoa => pessoa.id !== 3);
+        }
+
         return this.pessoas;
     }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { Pessoa } from "../model/pessoa";
 
 @Component({
@@ -8,26 +9,11 @@ import { Pessoa } from "../model/pessoa";
 
 export class PessoaComponent implements OnInit{
     pessoas?: Pessoa[];
-    constructor() { }
+    
+    constructor(private route: ActivatedRoute) { }
 
     ngOnInit(): void {
-        this.pessoas = [{
-            id: 1,
-            nome: "Lucas Pereira",
-            altura: 1.88,
-            cpf: "178.060.877-29"
-        },
-        {
-            id: 2,
-            nome: "Cláudio Tavares",
-            cpf: "060.851.900-19"
-        },
-        {
-            id: 3,
-            nome: "Patrícia Sampaio",
-            cpf: "195.899.103-29"
-        }
-    ]
+        this.pessoas = this.route.snapshot.data['pessoas'];
     }
 
     excluirPessoa(id: number){
