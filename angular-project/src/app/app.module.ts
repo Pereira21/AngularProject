@@ -8,6 +8,7 @@ import { FooterComponent } from './navegacao/footer/footer.component';
 import { HomeComponent } from './navegacao/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './navegacao/not-found/not-found.component';
+import { AuthGuard } from './services/app.guard';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { NotFoundComponent } from './navegacao/not-found/not-found.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
