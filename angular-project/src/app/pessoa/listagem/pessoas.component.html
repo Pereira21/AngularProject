@@ -1,4 +1,4 @@
-<!-- <div class="container main-container">
+<div class="container main-container">
     <h4>Pessoas Cadastradas</h4>
     <hr/>
     <div class="float-end">
@@ -10,6 +10,7 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nome</th>
+            <th scope="col">Data Nascimento</th>
             <th scope="col">Email</th>
             <th scope="col">Ações</th>
           </tr>
@@ -18,6 +19,7 @@
           <tr *ngFor="let pessoa of pessoas">
             <th scope="row">{{ pessoa.id }}</th>
             <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.dataNascimento | date: "dd/MM/yyyy"}}</td>
             <td>{{ pessoa.cpf }}</td>
             <td>
                 <button type="button" class="btn btn-sm btn-warning" disabled>Editar</button>
@@ -26,16 +28,20 @@
         </tr>
         </tbody>
       </table>
-</div> -->
+</div>
 
-<div class="container main-container">
+<!-- <div class="container main-container">
   <h4>Pessoas Cadastradas</h4>
   <hr/>
-  <div class="row text-center">
-    
+  <div class="row">
+    <div class="col-md-4">
+      <button type="button" class="btn btn-sm btn-primary">Adicionar</button>
+    </div>
+  </div>
+
+  <div class="row text-center">  
     <div *ngFor="let pessoa of pessoas;" class="col-md-4" style="padding-bottom: 30px;">
       <app-pessoa-card-detalhe [pessoa]="pessoa" (id)="excluirPessoa($event)" ></app-pessoa-card-detalhe>
     </div>
-
   </div>
-</div>
+</div> -->

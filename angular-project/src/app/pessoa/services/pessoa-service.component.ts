@@ -11,17 +11,20 @@ export class PessoaService{
             id: 1,
             nome: "Lucas Pereira",
             altura: 1.88,
-            cpf: "178.060.877-29"
+            cpf: "178.060.877-29",
+            dataNascimento: new Date(1998, 1, 27)
         },
         {
             id: 2,
             nome: "Cláudio Tavares",
-            cpf: "060.851.900-19"
+            cpf: "060.851.900-19",
+            dataNascimento: new Date(1965, 6, 13)
         },
         {
             id: 3,
             nome: "Patrícia Sampaio",
-            cpf: "195.899.103-29"
+            cpf: "195.899.103-29",
+            dataNascimento: new Date(1976,1,14)
         }
         ]
     }
