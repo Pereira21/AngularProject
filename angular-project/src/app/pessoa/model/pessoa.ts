@@ -4,5 +4,5 @@ export class Pessoa{
     altura?: number;
     dataNascimento?: Date;
     cpf?: string = "";
-    rg?: string = ";"
+    rg?: string = "";
 }

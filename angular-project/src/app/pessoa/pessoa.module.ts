@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
+import { FileSizePipe } from "../pipes/filesize.pipe";
 import { CadPessoaComponent } from "./cadastro/cad-pessoa.component";
 import { EditPessoaComponent } from "./edicao/edit-pessoa/edit-pessoa.component";
 import { PessoaCardDetalheComponent } from "./listagem/components/pessoa-card-detalhe.component";
@@ -16,7 +17,8 @@ import { PessoaService } from "./services/pessoa-service.component";
         CadPessoaComponent,
         EditPessoaComponent,
         PessoaComponent,
-        PessoaCardDetalheComponent
+        PessoaCardDetalheComponent,
+        FileSizePipe
     ],
     imports: [
         CommonModule,
