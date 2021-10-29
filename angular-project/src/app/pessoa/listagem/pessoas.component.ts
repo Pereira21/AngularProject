@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { Observable } from "rxjs";
 import { Pessoa } from "../model/pessoa";
+import { PessoaService } from "../services/pessoa-service.component";
 
 @Component({
     selector: 'app-list-pessoa',
@@ -8,12 +10,14 @@ import { Pessoa } from "../model/pessoa";
   })
 
 export class PessoaComponent implements OnInit{
-    pessoas?: Pessoa[];
+    pessoas$?: Observable<Pessoa[]>;
     
-    constructor(private route: ActivatedRoute) { }
+    constructor(private pessoaService: PessoaService) {
+        this.pessoas$ = pessoaService.obterTodos();
+     }
 
     ngOnInit(): void {
-        this.pessoas = this.route.snapshot.data['pessoas'];
+        
     }
 
     excluirPessoa(id: number){

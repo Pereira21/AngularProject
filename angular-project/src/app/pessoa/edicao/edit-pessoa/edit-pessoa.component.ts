@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Pessoa } from '../../model/pessoa';
 import { PessoaService } from '../../services/pessoa-service.component';
 
@@ -19,9 +20,7 @@ export class EditPessoaComponent implements OnInit {
   ngOnInit(): void {
     this.route.params
       .subscribe(params => {
-        this.pessoa = this.pessoaService.obterPeloId(params['id']);
-        
-        console.log(this.pessoa);
+        this.pessoaService.obterPeloId(params['id']).subscribe((response) => { this.pessoa = response });
       })
   }
 

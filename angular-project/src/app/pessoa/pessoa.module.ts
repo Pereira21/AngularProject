@@ -1,4 +1,5 @@
 import { CommonModule } from "@angular/common";
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FileSizePipe } from "../pipes/filesize.pipe";
@@ -8,7 +9,7 @@ import { PessoaCardDetalheComponent } from "./listagem/components/pessoa-card-de
 import { PessoaComponent } from "./listagem/pessoas.component";
 import { PessoaAppComponent } from "./pessoa.app.component";
 import { PessoaRoutingModule } from "./pessoa.routing";
-import { PessoaResolve } from "./services/pessoa-resolve.component";
+// import { PessoaResolve } from "./services/pessoa-resolve.component";obterPeloId
 import { PessoaService } from "./services/pessoa-service.component";
 
 @NgModule({
@@ -23,11 +24,12 @@ import { PessoaService } from "./services/pessoa-service.component";
     imports: [
         CommonModule,
         PessoaRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     providers:[
         PessoaService,
-        PessoaResolve
+        // PessoaResolve
     ],
     exports:[
 

@@ -16,13 +16,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let pessoa of pessoas">
+          <tr *ngFor="let pessoa of pessoas$ | async">
             <th scope="row">{{ pessoa.id }}</th>
             <td>{{ pessoa.nome }}</td>
             <td>{{ pessoa.dataNascimento | date: "dd/MM/yyyy"}}</td>
             <td>{{ pessoa.cpf }}</td>
             <td>
-                <button type="button" class="btn btn-sm btn-warning" disabled>Editar</button>
+                <button type="button" class="btn btn-sm btn-warning" [routerLink]="['editar/', pessoa.id]" routerLinkActive="router-link-active">Editar</button>
                 <button type="button" class="btn btn-sm btn-danger" style="margin-left:10px;" (click)="excluirPessoa(pessoa.id)">Excluir</button>
             </td>
         </tr>
