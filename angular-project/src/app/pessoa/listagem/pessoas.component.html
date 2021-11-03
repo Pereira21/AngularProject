@@ -2,7 +2,7 @@
     <h4>Pessoas Cadastradas</h4>
     <hr/>
     <div class="float-end">
-        <button type="button" class="btn btn-sm btn-primary" disabled>Adicionar</button>
+        <button type="button" class="btn btn-sm btn-primary" [routerLink]="['cadastrar']" routerLinkActive="router-link-active" >Adicionar</button>
     </div>
 
     <table class="table">
@@ -11,16 +11,16 @@
             <th scope="col">Id</th>
             <th scope="col">Nome</th>
             <th scope="col">Data Nascimento</th>
-            <th scope="col">Email</th>
+            <!-- <th scope="col">Email</th> -->
             <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let pessoa of pessoas$ | async">
+          <tr *ngFor="let pessoa of pessoas">
             <th scope="row">{{ pessoa.id }}</th>
             <td>{{ pessoa.nome }}</td>
             <td>{{ pessoa.dataNascimento | date: "dd/MM/yyyy"}}</td>
-            <td>{{ pessoa.cpf }}</td>
+            <!-- <td>{{ pessoa.cpf }}</td> -->
             <td>
                 <button type="button" class="btn btn-sm btn-warning" [routerLink]="['editar/', pessoa.id]" routerLinkActive="router-link-active">Editar</button>
                 <button type="button" class="btn btn-sm btn-danger" style="margin-left:10px;" (click)="excluirPessoa(pessoa.id)">Excluir</button>

@@ -1,7 +1,30 @@
-<div class="container">
-    Id: {{pessoa?.id}}<br>
-    Nome: {{pessoa?.nome}}
-    <div class="row">
-        <button type="button" class="btn btn-sm btn-success" (click)="salvar()">Salvar</button>
-    </div>
+<div class="container main-container">
+    <h4>Cadastro de Pessoa</h4>
+    <hr/>
+
+    <form (ngSubmit)="submitEditPessoa()" [formGroup]="formGroup">
+        <!-- <input type="hidden" formControlName="id" id="id"/> -->
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="label-control" for="nome">Nome</label>
+                <input type="text" class="form-control" formControlName="nome" id="nome" [ngClass]="{'is-invalid': formGroup.get('nome')?.errors?.required && (formGroup.get('nome')?.dirty || formGroup.get('nome')?.touched)}"/>
+                <span class="text-danger" *ngIf="formGroup.get('nome')?.errors?.required && (formGroup.get('nome')?.dirty || formGroup.get('nome')?.touched)">Obrigatório!</span>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="label-control" for="altura">Altura</label>
+                <input type="number" class="form-control" formControlName="altura" id="altura" />
+            </div>
+            <div class="form-group col-md-4">
+                <label class="label-control" for="dataNascimento">Data Nascimento</label>
+                <input type="date" class="form-control" formControlName="dataNascimento" id="dataNascimento" [ngClass]="{'is-invalid': formGroup.get('dataNascimento')?.errors?.required && (formGroup.get('dataNascimento')?.dirty || formGroup.get('dataNascimento')?.touched)}"/>
+                <span class="text-danger" *ngIf="formGroup.get('dataNascimento')?.errors?.required && (formGroup.get('dataNascimento')?.dirty || formGroup.get('dataNascimento')?.touched)">Obrigatório!</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <button type="button" class="btn btn-primary" id="btnVoltar" [routerLink]="['/pessoa']" routerLinkActive="router-link-active">Voltar</button>&nbsp;
+                <button type="submit" class="btn btn-success" id="submit" [disabled]="!formGroup.valid">Salvar</button>
+            </div>
+        </div>
+    </form>
 </div>

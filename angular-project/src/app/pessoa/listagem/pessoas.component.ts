@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { Pessoa } from "../model/pessoa";
 import { PessoaService } from "../services/pessoa-service.component";
@@ -10,10 +10,12 @@ import { PessoaService } from "../services/pessoa-service.component";
   })
 
 export class PessoaComponent implements OnInit{
-    pessoas$?: Observable<Pessoa[]>;
+    pessoas?: Pessoa[];
     
-    constructor(private pessoaService: PessoaService) {
-        this.pessoas$ = pessoaService.obterTodos();
+    constructor(
+        private pessoaService: PessoaService,
+        private router: Router) {
+        pessoaService.obterTodos().subscribe((response) => { this.pessoas = response });
      }
 
     ngOnInit(): void {
@@ -21,6 +23,7 @@ export class PessoaComponent implements OnInit{
     }
 
     excluirPessoa(id: number){
-        console.log("O id é " + id);
+        this.pessoaService.remover(id).subscribe();
+        window.location.reload();
     }
 }
