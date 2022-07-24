@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Pessoa } from '../model/pessoa';
 import { PessoaService } from '../services/pessoa-service.component';
@@ -8,7 +8,7 @@ import { PessoaService } from '../services/pessoa-service.component';
   selector: 'app-cad-pessoa',
   templateUrl: './cad-pessoa.component.html'
 })
-export class CadPessoaComponent {
+export class CadPessoaComponent implements OnInit {
 
   formGroup: FormGroup;
   pessoa: Pessoa;
@@ -16,7 +16,9 @@ export class CadPessoaComponent {
   constructor(private formBuilder: FormBuilder, 
     private pessoaService: PessoaService,
     private router: Router) { 
-    this.formGroup = formBuilder.group({
+  }
+  ngOnInit(): void {
+    this.formGroup = this.formBuilder.group({
       nome: ['', Validators.required],
       altura: [''],
       dataNascimento: ['', Validators.required],

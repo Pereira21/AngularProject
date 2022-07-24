@@ -18,7 +18,7 @@
         <tbody>
           <tr *ngFor="let pessoa of pessoas">
             <th scope="row">{{ pessoa.id }}</th>
-            <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.nome | titlecase }}</td>
             <td>{{ pessoa.dataNascimento | date: "dd/MM/yyyy"}}</td>
             <!-- <td>{{ pessoa.cpf }}</td> -->
             <td>

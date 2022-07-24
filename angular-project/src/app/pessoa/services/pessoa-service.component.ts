@@ -6,28 +6,29 @@ import { Pessoa } from "../model/pessoa";
 @Injectable()
 export class PessoaService{
     pessoas?: Observable<Pessoa[]>;
+    urlService = 'https://localhost:44337/api/Pessoa/';
 
     constructor(private http: HttpClient){
         
     }
 
     obterTodos() : Observable<Pessoa[]>{
-        return this.http.get<Pessoa[]>('https://localhost:44337/api/Pessoa');
+        return this.http.get<Pessoa[]>(this.urlService);
     }
 
     obterPeloId(id: number) : Observable<Pessoa> {
-        return this.http.get<Pessoa>('https://localhost:44337/api/Pessoa/' + id);
+        return this.http.get<Pessoa>(this.urlService + id);
     }
 
     cadastrar(pessoa: Pessoa) : Observable<Pessoa>{
-        return this.http.post<Pessoa>('https://localhost:44337/api/Pessoa/', pessoa);
+        return this.http.post<Pessoa>(this.urlService, pessoa);
     }
 
     editar(id: number, pessoa: Pessoa) : Observable<Pessoa>{
-        return this.http.put<Pessoa>('https://localhost:44337/api/Pessoa/' + id, pessoa);
+        return this.http.put<Pessoa>(this.urlService + id, pessoa);
     }
 
     remover(id:number) : Observable<Pessoa>{
-        return this.http.delete<Pessoa>('https://localhost:44337/api/Pessoa/' + id);
+        return this.http.delete<Pessoa>(this.urlService + id);
     }
 }
