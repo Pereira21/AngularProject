@@ -19,7 +19,7 @@
                 <span class="text-danger" *ngIf="formGroup.get('dataNascimento')?.errors?.required && (formGroup.get('dataNascimento')?.dirty || formGroup.get('dataNascimento')?.touched)">Obrigatório!</span>
             </div>
         </div>
-        <!-- <div class="row">
+        <div class="row">
             <div class="form-group col-md-4">
                 <label class="label-control" for="email">Email</label>
                 <input type="email" class="form-control" formControlName="email" id="email"
@@ -28,8 +28,16 @@
                 <span class="text-danger" *ngIf="formGroup.get('email')?.errors?.required && (formGroup.get('email')?.dirty || formGroup.get('email')?.touched)">Obrigatório!</span>
                 <span class="text-danger" *ngIf="formGroup.get('email')?.errors?.email && (formGroup.get('email')?.dirty || formGroup.get('email')?.touched)">Inválido!</span>
             </div>
-        </div> -->
-
+            <div class="form-group col-md-4">
+                <label class="label-control" for="cpf">Cpf</label>
+                <input type="text" class="form-control" formControlName="cpf" id="cpf" cpf
+                [ngClass]="{'is-invalid': (formGroup.get('cpf')?.errors?.required && (formGroup.get('cpf')?.dirty || formGroup.get('cpf')?.touched)) || 
+                                          (formGroup.get('cpf')?.errors?.cpf && (formGroup.get('cpf')?.dirty || formGroup.get('cpf')?.touched))}"
+                [textMask]="{mask: MASKS.cpf.textMask}"/>
+                <span class="text-danger" *ngIf="formGroup.get('cpf')?.errors?.required && (formGroup.get('cpf')?.dirty || formGroup.get('cpf')?.touched)">Obrigatório!</span>
+                <span class="text-danger" *ngIf="formGroup.get('cpf')?.errors?.cpf && (formGroup.get('cpf')?.dirty || formGroup.get('cpf')?.touched)">Inválido!</span>
+            </div>
+        </div>
         <div class="row">
             <div class="form-group col-md-4">
                 <button type="button" class="btn btn-primary" id="btnVoltar" [routerLink]="['/pessoa']" routerLinkActive="router-link-active">Voltar</button>&nbsp;

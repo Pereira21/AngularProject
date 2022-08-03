@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MASKS, NgBrazilValidators } from 'ng-brazil';
 import { Pessoa } from '../model/pessoa';
 import { PessoaService } from '../services/pessoa-service.component';
 
@@ -10,8 +11,9 @@ import { PessoaService } from '../services/pessoa-service.component';
 })
 export class CadPessoaComponent implements OnInit {
 
-  formGroup: FormGroup;
-  pessoa: Pessoa;
+  public formGroup: FormGroup;
+  public pessoa: Pessoa;
+  public MASKS = MASKS;
 
   constructor(private formBuilder: FormBuilder, 
     private pessoaService: PessoaService,
@@ -22,8 +24,8 @@ export class CadPessoaComponent implements OnInit {
       nome: ['', Validators.required],
       altura: [''],
       dataNascimento: ['', Validators.required],
-      // email: ['', [Validators.required, Validators.email]],
-      // cpf: [''],
+      email: ['', [Validators.required, Validators.email]],
+      cpf: ['', [Validators.required, NgBrazilValidators.cpf]],
       // rg: ['']
     });
   }

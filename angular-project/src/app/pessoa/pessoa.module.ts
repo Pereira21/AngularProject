@@ -2,6 +2,8 @@ import { CommonModule } from "@angular/common";
 import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
+import { TextMaskModule } from "angular2-text-mask";
+import { NgBrazil } from "ng-brazil";
 import { FileSizePipe } from "../pipes/filesize.pipe";
 import { CadPessoaComponent } from "./cadastro/cad-pessoa.component";
 import { EditPessoaComponent } from "./edicao/edit-pessoa/edit-pessoa.component";
@@ -25,7 +27,9 @@ import { PessoaService } from "./services/pessoa-service.component";
         CommonModule,
         PessoaRoutingModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        TextMaskModule,
+        NgBrazil
     ],
     providers:[
         PessoaService,
